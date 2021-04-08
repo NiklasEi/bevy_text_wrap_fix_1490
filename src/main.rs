@@ -7,10 +7,10 @@ fn main() {
         .run();
 }
 
-fn setup(commands: &mut Commands, asset_server: Res<AssetServer>) {
+fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     commands
-        .spawn(UiCameraBundle::default())
-        .spawn(TextBundle {
+        .spawn_bundle(UiCameraBundle::default());
+    commands.spawn_bundle(TextBundle {
             text: Text {
                 sections: vec![TextSection { value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas auctor, nunc ac faucibus fringilla.".to_string(), style: TextStyle {
                     font_size: 60.0,
